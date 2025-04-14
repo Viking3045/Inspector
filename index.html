@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+</head>
+<body>
+    <header>
+
+    </header>
+    <main>
+      <section class="calculation">
+        <div class="container ">
+      <button id="openModalNotification" class="notificationButton btn">Повідомлення </button>
+      <button id="openModalIdentification" class="identificationButton btn">Ідентифікація об'єкта</button>
+      <button id="openModalActOfInspection" class="actOfInspectionButton btn">Акт проведення перевірки</button>
+      <button id="openModalActOfRefusal" class="actOfRefusalButton btn">Акт відмови від перевірки</button>
+      <button id="openModalRequirements" class="requirementsButton btn">Вимоги до об'єкта</button>
+      <button id="openModalRemark" class="remarkButton btn">Вести недоліки та зауваження</button>
+      <button id="openModalOrder" class="orderButton btn">Сформувати припис</button>
+      </div>
+      </section>
+      <!-- Повідомлення -->
+       <div id="myModalNotification" class="modalNotification modal">
+<div class="modal-content main">
+  <span class="closeNotification close">&times;</span>
+  <section class="calculation">
+<div class="container ">
+  <form class="form" autocomplete="off">
+      <label class="notificationName primaryTextColor">Найменування органу Держтехногенбезпеки України, посадові особи якого будуть здійснювати перевірку
+        <input class="amountNotification notificationInspectorObj input" placeholder="Введіть найменування " name="notificationInspectorObj" type="text" minlength="1" autofocus/>
+      </label>
+
+    <label class="notificationName primaryTextColor">Найменування суб’єкта господарювання, органу влади або іншого підконтрольного об’єкта 
+       <input class="amountNotification notificationObj input" placeholder="Введіть найменування " name="notificationObj" type="text" minlength="1" autofocus/>
+      </label>
+     <label class="notificationName primaryTextColor">Прізвище фізичної особи – підприємця 
+      <input class="amountNotification surnamePerson input" placeholder="Прізвище" name="surnamePerson" type="text" minlength="1" autofocus/>
+    </label>
+      <label class="notificationName primaryTextColor">Ім’я фізичної особи – підприємця 
+        <input class="amountNotification namePerson input" placeholder="Ім'я" name="namePerson" type="text" minlength="1" autofocus/>
+      </label>
+  <label class="notificationName primaryTextColor">По батькові  фізичної особи – підприємця 
+    <input class="amountNotification middleNamePerson input" placeholder="По батькові" name="middleNamePerson" type="text" minlength="1" autofocus/>
+  </label>
+      <label class="notificationName primaryTextColor">Місцезнаходження 
+        <input class="amountNotification locationObj input" placeholder="Місцезнаходження" name="locationObj" type="text" minlength="1" autofocus/>
+      </label>
+      <label class="notificationName primaryTextColor">Дата початку перевірки 
+        <input class="amountNotification dateStartNotification input"  name="dateStartNotification" type="date" minlength="1" autofocus/>
+      </label>
+      <label class="notificationName primaryTextColor">Дата закінчення перевірки  
+        <input class="amountNotification dateFinishNotification input"  name="dateFinishNotification" type="date" minlength="1" autofocus/>
+      </label>
+      <label class="notificationName primaryTextColor">Посада керівника органу Держтехногенбезпеки України 
+         <input class="amountNotification positionOfHeadOfStateTechnologicalAndEnvironmentalSafety input" placeholder="Посада керівника органу Держтехногенбезпеки України" name="positionOfHeadOfStateTechnologicalAndEnvironmentalSafety" type="text" minlength="1" autofocus/>
+      </label>
+      <label class="notificationName primaryTextColor">Прізвище керівника органу Держтехногенбезпеки України 
+        <input class="amountNotification surnameOfHeadOfStateTechnologicalAndEnvironmentalSafety input" placeholder="Посада керівника органу Держтехногенбезпеки України" name="surnameOfHeadOfStateTechnologicalAndEnvironmentalSafety" type="text" minlength="1" autofocus/>
+     </label>
+     <label class="notificationName primaryTextColor">Ім’я керівника органу Держтехногенбезпеки України 
+      <input class="amountNotification nameOfHeadOfStateTechnologicalAndEnvironmentalSafety input" placeholder="Посада керівника органу Держтехногенбезпеки України" name="nameOfHeadOfStateTechnologicalAndEnvironmentalSafety" type="text" minlength="1" autofocus/>
+   </label>
+   <label class="notificationName primaryTextColor">По батькові керівника органу Держтехногенбезпеки України 
+    <input class="amountNotification middleNameOfHeadOfStateTechnologicalAndEnvironmentalSafety input" placeholder="Посада керівника органу Держтехногенбезпеки України" name="middleNameOfHeadOfStateTechnologicalAndEnvironmentalSafety" type="text" minlength="1" autofocus/>
+ </label>
+      <button class="btn submitNotification" type="submit">Cформувати повідомлення</button>
+  </form>
+</div>
+  </section>
+</div>
+       </div>
+      <!-- Ідентифікація об'єкта -->
+      <div id="myModalIdentification" class="modalIdentification modal">
+        <div class="modal-content main mainIdentification">
+          <span class="closeIdentification close">&times;</span>
+          <section class="calculation">
+            <div class="container ">
+              <h2 class="title1 primaryTextColor">Кількіть речовин</h2>
+              <ul>
+                <li>      
+                  <h3 class="calculation__name primaryTextColor">Кількість небезпечної реовини</h3>
+                  <input class="amount input" placeholder="Введіть кількість речовини" name="amount" type="number" min="0" maxlength="2" minlength="1" />
+                </li>
+              </ul>
+              <select class="selectDangerousSubstance">
+                  <option value disabled selected>Оберіть тип небезпечної речовини</option> 
+         
+                </select></li>
+                <button
+                class="submitFirstForm"
+                style="padding: 20px"
+                type="button"
+              > Додати небезпечну речовину</button>
+              </div>
+              </section>
+              <section class="secondSection calculation">
+                <div class="container">
+                <h2 class="title"></h2>
+                <ul class="calculationForm ">
+                </ul>
+                <!-- <button  class="submitFinaltForm"
+                style="padding: 20px"
+                type="button">Розрахувати</button> -->
+                </div>
+              </section>
+        </div>
+      </div>
+
+
+      <!-- Акт проведення перевірку -->
+      <div id="myModalActOfInspection" class="modalActOfInspection modal">
+        <div class="modal-content main mainActOfInspection">
+          <span class="closeActOfInspection close">&times;</span>
+          <section class="calculation">
+            <div class="container ">
+              <form class="form">
+                <fieldset class="form-group">
+                  <legend class="group-title"> Процес проведення заходу (його окремої дії) фіксувався суб’єктом господарювання</legend>
+                  <div class="form-field">
+                    <input type="checkbox" name="language" value="python" id="python">
+                    <label class="form-label" for="python">засобами аудіотехніки</label>
+                  </div>
+                  <div class="form-field">
+                    <input type="checkbox" name="language" value="js" id="js">
+                    <label class="form-label" for="js">засобами відеотехніки</label>
+                  </div>
+                </fieldset>
+                <fieldset class="form-group">
+                  <legend class="group-title">Процес проведення заходу (його окремої дії) фіксувався 
+                    посадовою особою органу державного нагляду (контролю)</legend>
+                  <div class="form-field">
+                    <input type="checkbox" name="language" value="python" id="python">
+                    <label class="form-label" for="python">засобами аудіотехніки</label>
+                  </div>
+                  <div class="form-field">
+                    <input type="checkbox" name="language" value="js" id="js">
+                    <label class="form-label" for="js">засобами відеотехніки</label>
+                  </div>
+                </fieldset>
+                <h3>ПЕРЕЛІК питань щодо проведення заходу державного нагляду (контролю)</h3>
+                <!-- Організаційні заходи щодо забезпечення пожежної безпеки -->
+                <p>Організаційні заходи щодо забезпечення пожежної безпеки</p>
+                <fieldset class="form-group">
+                  <legend class="group-title">На об’єкті розпорядчі документи та інформаційні покажчики з питань пожежної безпеки в наявності</legend>
+                  <div class="form-field">
+                    <label>
+                      <input type="radio" name="color" value="red" />
+                      так
+                    </label>
+                    <label>
+                      <input type="radio" name="color" value="white"/>
+                      ні
+                    </label>
+                    <label>
+                      <input type="radio" name="color" value="green" />
+                      не розглядалися
+                  </div>
+                  <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                    4 балів)**
+                    </legend>
+                    <div class="form-field">
+                      <label>
+                        <input type="radio" name="color" value="red" />
+                        1
+                      </label>
+                      <label>
+                        <input type="radio" name="color" value="white"/>
+                        2
+                      </label>
+                      <label>
+                        <input type="radio" name="color" value="green" />
+                        3</label>
+                        <label>
+                          <input type="radio" name="color" value="green" />
+                          4</label>
+                          <label>
+                            Нормативне обґрунтування
+                            <input type="text" name="color"  />
+                            </label>
+                    </div>
+                  </fieldset>
+                  <fieldset class="form-group">
+                    <legend class="group-title">На об’єкті на видимих місцях плани (схеми) евакуації людей на випадок пожежі вивішені</legend>
+                    <div class="form-field">
+                      <label>
+                        <input type="radio" name="color" value="red" />
+                        так
+                      </label>
+                      <label>
+                        <input type="radio" name="color" value="white"/>
+                        ні
+                      </label>
+                      <label>
+                        <input type="radio" name="color" value="green" />
+                        не розглядалися
+                    </div>
+                    <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                      4 балів)**
+                      </legend>
+                      <div class="form-field">
+                        <label>
+                          <input type="radio" name="color" value="red" />
+                          1
+                        </label>
+                        <label>
+                          <input type="radio" name="color" value="white"/>
+                          2
+                        </label>
+                        <label>
+                          <input type="radio" name="color" value="green" />
+                          3</label>
+                          <label>
+                            <input type="radio" name="color" value="green" />
+                            4</label>
+                            <label>
+                              Нормативне обґрунтування
+                              <input type="text" name="color"  />
+                              </label>
+                      </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                      <legend class="group-title">Під час експлуатації об’єктів рівень пожежної безпеки, установлений законодавством, яке було чинним на момент початку використання об’єкта, не знижений</legend>
+                      <div class="form-field">
+                        <label>
+                          <input type="radio" name="color" value="red" />
+                          так
+                        </label>
+                        <label>
+                          <input type="radio" name="color" value="white"/>
+                          ні
+                        </label>
+                        <label>
+                          <input type="radio" name="color" value="green" />
+                          не розглядалися
+                      </div>
+                      <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                        4 балів)**
+                        </legend>
+                        <div class="form-field">
+                          <label>
+                            <input type="radio" name="color" value="red" />
+                            1
+                          </label>
+                          <label>
+                            <input type="radio" name="color" value="white"/>
+                            2
+                          </label>
+                          <label>
+                            <input type="radio" name="color" value="green" />
+                            3</label>
+                            <label>
+                              <input type="radio" name="color" value="green" />
+                              4</label>
+                              <label>
+                                Нормативне обґрунтування
+                                <input type="text" name="color"  />
+                                </label>
+                        </div>
+                      </fieldset>
+                      <fieldset class="form-group">
+                        <legend class="group-title">У будівництві та на виробництві застосовуються матеріали та речовини з визначеними показниками щодо пожежної небезпеки</legend>
+                        <div class="form-field">
+                          <label>
+                            <input type="radio" name="color" value="red" />
+                            так
+                          </label>
+                          <label>
+                            <input type="radio" name="color" value="white"/>
+                            ні
+                          </label>
+                          <label>
+                            <input type="radio" name="color" value="green" />
+                            не розглядалися
+                        </div>
+                        <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                          4 балів)**
+                          </legend>
+                          <div class="form-field">
+                            <label>
+                              <input type="radio" name="color" value="red" />
+                              1
+                            </label>
+                            <label>
+                              <input type="radio" name="color" value="white"/>
+                              2
+                            </label>
+                            <label>
+                              <input type="radio" name="color" value="green" />
+                              3</label>
+                              <label>
+                                <input type="radio" name="color" value="green" />
+                                4</label>
+                                <label>
+                                  Нормативне обґрунтування
+                                  <input type="text" name="color"  />
+                                  </label>
+                          </div>
+                        </fieldset>
+                        <fieldset class="form-group">
+                          <legend class="group-title">Дотримання працівниками об’єкта встановленого протипожежного режиму забезпечено</legend>
+                          <div class="form-field">
+                            <label>
+                              <input type="radio" name="color" value="red" />
+                              так
+                            </label>
+                            <label>
+                              <input type="radio" name="color" value="white"/>
+                              ні
+                            </label>
+                            <label>
+                              <input type="radio" name="color" value="green" />
+                              не розглядалися
+                          </div>
+                          <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                            4 балів)**
+                            </legend>
+                            <div class="form-field">
+                              <label>
+                                <input type="radio" name="color" value="red" />
+                                1
+                              </label>
+                              <label>
+                                <input type="radio" name="color" value="white"/>
+                                2
+                              </label>
+                              <label>
+                                <input type="radio" name="color" value="green" />
+                                3</label>
+                                <label>
+                                  <input type="radio" name="color" value="green" />
+                                  4</label>
+                                  <label>
+                                    Нормативне обґрунтування
+                                    <input type="text" name="color"  />
+                                    </label>
+                            </div>
+                          </fieldset>
+                          <fieldset class="form-group">
+                            <legend class="group-title">Роботу новоутвореного підприємства чи використання суб’єктом господарювання об’єктів нерухомості розпочато на підставі поданої декларації відповідності матеріально-технічної бази суб’єкта господарювання вимогам законодавства з питань пожежної безпеки</legend>
+                            <div class="form-field">
+                              <label>
+                                <input type="radio" name="color" value="red" />
+                                так
+                              </label>
+                              <label>
+                                <input type="radio" name="color" value="white"/>
+                                ні
+                              </label>
+                              <label>
+                                <input type="radio" name="color" value="green" />
+                                не розглядалися
+                            </div>
+                            <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                              4 балів)**
+                              </legend>
+                              <div class="form-field">
+                                <label>
+                                  <input type="radio" name="color" value="red" />
+                                  1
+                                </label>
+                                <label>
+                                  <input type="radio" name="color" value="white"/>
+                                  2
+                                </label>
+                                <label>
+                                  <input type="radio" name="color" value="green" />
+                                  3</label>
+                                  <label>
+                                    <input type="radio" name="color" value="green" />
+                                    4</label>
+                                    <label>
+                                      Нормативне обґрунтування
+                                      <input type="text" name="color"  />
+                                      </label>
+                              </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                              <legend class="group-title">Посадові особи та працівники пройшли навчання, протипожежний інструктаж і перевірку знань з питань пожежної безпеки </legend>
+                              <div class="form-field">
+                                <label>
+                                  <input type="radio" name="color" value="red" />
+                                  так
+                                </label>
+                                <label>
+                                  <input type="radio" name="color" value="white"/>
+                                  ні
+                                </label>
+                                <label>
+                                  <input type="radio" name="color" value="green" />
+                                  не розглядалися
+                              </div>
+                              <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                4 балів)**
+                                </legend>
+                                <div class="form-field">
+                                  <label>
+                                    <input type="radio" name="color" value="red" />
+                                    1
+                                  </label>
+                                  <label>
+                                    <input type="radio" name="color" value="white"/>
+                                    2
+                                  </label>
+                                  <label>
+                                    <input type="radio" name="color" value="green" />
+                                    3</label>
+                                    <label>
+                                      <input type="radio" name="color" value="green" />
+                                      4</label>
+                                      <label>
+                                        Нормативне обґрунтування
+                                        <input type="text" name="color"  />
+                                        </label>
+                                </div>
+                              </fieldset>
+                              <!-- Утримання території -->
+                              <p>Утримання території</p>
+               
+                  <fieldset class="form-group">
+                    <legend class="group-title">Під час експлуатації об’єктів мінімальні протипожежні відстані не зменшено</legend>
+                    <div class="form-field">
+                      <label>
+                        <input type="radio" name="color" value="red" />
+                        так
+                      </label>
+                      <label>
+                        <input type="radio" name="color" value="white"/>
+                        ні
+                      </label>
+                      <label>
+                        <input type="radio" name="color" value="green" />
+                        не розглядалися
+                    </div>
+                    <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                      4 балів)**
+                      </legend>
+                      <div class="form-field">
+                        <label>
+                          <input type="radio" name="color" value="red" />
+                          1
+                        </label>
+                        <label>
+                          <input type="radio" name="color" value="white"/>
+                          2
+                        </label>
+                        <label>
+                          <input type="radio" name="color" value="green" />
+                          3</label>
+                          <label>
+                            <input type="radio" name="color" value="green" />
+                            4</label>
+                            <label>
+                              Нормативне обґрунтування
+                              <input type="text" name="color"  />
+                              </label>
+                      </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                      <legend class="group-title">Територія об'єктів, ділянок, що межують з житловими будинками, дачними та іншими будинками, протипожежні відстані між будинками, спорудами, майданчиками для зберігання матеріалів, устаткування систематично очищаються від сміття, відходів виробництва, тари, опалого листя, котрі  регулярно видаляються (вивозяться) у спеціально відведені місця</legend>
+                      <div class="form-field">
+                        <label>
+                          <input type="radio" name="color" value="red" />
+                          так
+                        </label>
+                        <label>
+                          <input type="radio" name="color" value="white"/>
+                          ні
+                        </label>
+                        <label>
+                          <input type="radio" name="color" value="green" />
+                          не розглядалися
+                      </div>
+                      <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                        4 балів)**
+                        </legend>
+                        <div class="form-field">
+                          <label>
+                            <input type="radio" name="color" value="red" />
+                            1
+                          </label>
+                          <label>
+                            <input type="radio" name="color" value="white"/>
+                            2
+                          </label>
+                          <label>
+                            <input type="radio" name="color" value="green" />
+                            3</label>
+                            <label>
+                              <input type="radio" name="color" value="green" />
+                              4</label>
+                              <label>
+                                Нормативне обґрунтування
+                                <input type="text" name="color"  />
+                                </label>
+                        </div>
+                      </fieldset>
+                      <fieldset class="form-group">
+                        <legend class="group-title">На території об’єкта звалища горючих відходів відсутні</legend>
+                        <div class="form-field">
+                          <label>
+                            <input type="radio" name="color" value="red" />
+                            так
+                          </label>
+                          <label>
+                            <input type="radio" name="color" value="white"/>
+                            ні
+                          </label>
+                          <label>
+                            <input type="radio" name="color" value="green" />
+                            не розглядалися
+                        </div>
+                        <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                          4 балів)**
+                          </legend>
+                          <div class="form-field">
+                            <label>
+                              <input type="radio" name="color" value="red" />
+                              1
+                            </label>
+                            <label>
+                              <input type="radio" name="color" value="white"/>
+                              2
+                            </label>
+                            <label>
+                              <input type="radio" name="color" value="green" />
+                              3</label>
+                              <label>
+                                <input type="radio" name="color" value="green" />
+                                4</label>
+                                <label>
+                                  Нормативне обґрунтування
+                                  <input type="text" name="color"  />
+                                  </label>
+                          </div>
+                        </fieldset>
+                        <fieldset class="form-group">
+                          <legend class="group-title">Автомобільні дороги, проїзди й проходи до будівель, споруд, пожежних вододжерел, підступи до зовнішніх стаціонарних пожежних драбин, пожежного інвентарю, обладнання та засобів пожежогасіння вільні, утримуються справними, взимку очищаються від снігу</legend>
+                          <div class="form-field">
+                            <label>
+                              <input type="radio" name="color" value="red" />
+                              так
+                            </label>
+                            <label>
+                              <input type="radio" name="color" value="white"/>
+                              ні
+                            </label>
+                            <label>
+                              <input type="radio" name="color" value="green" />
+                              не розглядалися
+                          </div>
+                          <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                            4 балів)**
+                            </legend>
+                            <div class="form-field">
+                              <label>
+                                <input type="radio" name="color" value="red" />
+                                1
+                              </label>
+                              <label>
+                                <input type="radio" name="color" value="white"/>
+                                2
+                              </label>
+                              <label>
+                                <input type="radio" name="color" value="green" />
+                                3</label>
+                                <label>
+                                  <input type="radio" name="color" value="green" />
+                                  4</label>
+                                  <label>
+                                    Нормативне обґрунтування
+                                    <input type="text" name="color"  />
+                                    </label>
+                            </div>
+                          </fieldset>
+                          м
+                          <fieldset class="form-group">
+                            <legend class="group-title">Протипожежні відстані між будинками, спорудами, відкритими майданчиками для зберігання матеріалів, устаткування не захаращені та не використовуються для складування матеріалів, устаткування, стоянок транспорту, будівництва та встановлення тимчасових будинків і споруд, у тому числі мобільних (інвентарних) будівель, індивідуальних гаражів</legend>
+                            <div class="form-field">
+                              <label>
+                                <input type="radio" name="color" value="red" />
+                                так
+                              </label>
+                              <label>
+                                <input type="radio" name="color" value="white"/>
+                                ні
+                              </label>
+                              <label>
+                                <input type="radio" name="color" value="green" />
+                                не розглядалися
+                            </div>
+                            <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                              4 балів)**
+                              </legend>
+                              <div class="form-field">
+                                <label>
+                                  <input type="radio" name="color" value="red" />
+                                  1
+                                </label>
+                                <label>
+                                  <input type="radio" name="color" value="white"/>
+                                  2
+                                </label>
+                                <label>
+                                  <input type="radio" name="color" value="green" />
+                                  3</label>
+                                  <label>
+                                    <input type="radio" name="color" value="green" />
+                                    4</label>
+                                    <label>
+                                      Нормативне обґрунтування
+                                      <input type="text" name="color"  />
+                                      </label>
+                              </div>
+                            </fieldset>
+                            <fieldset class="form-group">
+                              <legend class="group-title">На території об’єкта освітлення зовнішніх пожежних драбин, протипожежного обладнання, входів до будинків та споруд забезпечено</legend>
+                              <div class="form-field">
+                                <label>
+                                  <input type="radio" name="color" value="red" />
+                                  так
+                                </label>
+                                <label>
+                                  <input type="radio" name="color" value="white"/>
+                                  ні
+                                </label>
+                                <label>
+                                  <input type="radio" name="color" value="green" />
+                                  не розглядалися
+                              </div>
+                              <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                4 балів)**
+                                </legend>
+                                <div class="form-field">
+                                  <label>
+                                    <input type="radio" name="color" value="red" />
+                                    1
+                                  </label>
+                                  <label>
+                                    <input type="radio" name="color" value="white"/>
+                                    2
+                                  </label>
+                                  <label>
+                                    <input type="radio" name="color" value="green" />
+                                    3</label>
+                                    <label>
+                                      <input type="radio" name="color" value="green" />
+                                      4</label>
+                                      <label>
+                                        Нормативне обґрунтування
+                                        <input type="text" name="color"  />
+                                        </label>
+                                </div>
+                              </fieldset>
+                              <fieldset class="form-group">
+                                <legend class="group-title">Інші вимоги пожежної безпеки щодо утримання території виконуються</legend>
+                                <div class="form-field">
+                                  <label>
+                                    <input type="radio" name="color" value="red" />
+                                    так
+                                  </label>
+                                  <label>
+                                    <input type="radio" name="color" value="white"/>
+                                    ні
+                                  </label>
+                                  <label>
+                                    <input type="radio" name="color" value="green" />
+                                    не розглядалися
+                                </div>
+                                <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                  4 балів)
+                                  </legend>
+                                  <div class="form-field">
+                                    <label>
+                                      <input type="radio" name="color" value="red" />
+                                      1
+                                    </label>
+                                    <label>
+                                      <input type="radio" name="color" value="white"/>
+                                      2
+                                    </label>
+                                    <label>
+                                      <input type="radio" name="color" value="green" />
+                                      3</label>
+                                      <label>
+                                        <input type="radio" name="color" value="green" />
+                                        4</label>
+                                        <label>
+                                          Нормативне обґрунтування
+                                          <input type="text" name="color"  />
+                                          </label>
+                                  </div>
+                                </fieldset>
+                                <!-- Утримання будинків, приміщень та споруд  -->
+                                <p>Утримання будинків, приміщень та споруд </p>
+                                <fieldset class="form-group">
+                                  <legend class="group-title">Керівник об’єкта, підприємства забезпечив утримання засобів протипожежного захисту у працездатному стані та забезпечив їх технічне обслуговування </legend>
+                                  <div class="form-field">
+                                    <label>
+                                      <input type="radio" name="color" value="red" />
+                                      так
+                                    </label>
+                                    <label>
+                                      <input type="radio" name="color" value="white"/>
+                                      ні
+                                    </label>
+                                    <label>
+                                      <input type="radio" name="color" value="green" />
+                                      не розглядалися
+                                  </div>
+                                  <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                    4 балів)
+                                    </legend>
+                                    <div class="form-field">
+                                      <label>
+                                        <input type="radio" name="color" value="red" />
+                                        1
+                                      </label>
+                                      <label>
+                                        <input type="radio" name="color" value="white"/>
+                                        2
+                                      </label>
+                                      <label>
+                                        <input type="radio" name="color" value="green" />
+                                        3</label>
+                                        <label>
+                                          <input type="radio" name="color" value="green" />
+                                          4</label>
+                                          <label>
+                                            Нормативне обґрунтування
+                                            <input type="text" name="color"  />
+                                            </label>
+                                    </div>
+                                  </fieldset>   
+                                  <fieldset class="form-group">
+                                    <legend class="group-title">Протипожежні двері, ворота, вікна, люки, клапани, завіси (екрани) у протипожежних перешкодах утримуються у справному стані. Будь-які пристрої, предмети тощо, що перешкоджають їх зачиненню, не встановлено</legend>
+                                    <div class="form-field">
+                                      <label>
+                                        <input type="radio" name="color" value="red" />
+                                        так
+                                      </label>
+                                      <label>
+                                        <input type="radio" name="color" value="white"/>
+                                        ні
+                                      </label>
+                                      <label>
+                                        <input type="radio" name="color" value="green" />
+                                        не розглядалися
+                                    </div>
+                                    <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                      4 балів)
+                                      </legend>
+                                      <div class="form-field">
+                                        <label>
+                                          <input type="radio" name="color" value="red" />
+                                          1
+                                        </label>
+                                        <label>
+                                          <input type="radio" name="color" value="white"/>
+                                          2
+                                        </label>
+                                        <label>
+                                          <input type="radio" name="color" value="green" />
+                                          3</label>
+                                          <label>
+                                            <input type="radio" name="color" value="green" />
+                                            4</label>
+                                            <label>
+                                              Нормативне обґрунтування
+                                              <input type="text" name="color"  />
+                                              </label>
+                                      </div>
+                                    </fieldset>   
+                                    <fieldset class="form-group">
+                                      <legend class="group-title">У будинках, крім будинків V ступеня вогнестійкості, дерев’яні елементи горищних покриттів (крокви, лати) оброблені засобами вогнезахисту, які забезпечують І групу вогнезахисної ефективності</legend>
+                                      <div class="form-field">
+                                        <label>
+                                          <input type="radio" name="color" value="red" />
+                                          так
+                                        </label>
+                                        <label>
+                                          <input type="radio" name="color" value="white"/>
+                                          ні
+                                        </label>
+                                        <label>
+                                          <input type="radio" name="color" value="green" />
+                                          не розглядалися
+                                      </div>
+                                      <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                        4 балів)
+                                        </legend>
+                                        <div class="form-field">
+                                          <label>
+                                            <input type="radio" name="color" value="red" />
+                                            1
+                                          </label>
+                                          <label>
+                                            <input type="radio" name="color" value="white"/>
+                                            2
+                                          </label>
+                                          <label>
+                                            <input type="radio" name="color" value="green" />
+                                            3</label>
+                                            <label>
+                                              <input type="radio" name="color" value="green" />
+                                              4</label>
+                                              <label>
+                                                Нормативне обґрунтування
+                                                <input type="text" name="color"  />
+                                                </label>
+                                        </div>
+                                      </fieldset>   
+                                      <fieldset class="form-group">
+                                        <legend class="group-title">Підвальні та цокольні поверхи утримуються відповідно до вимог пожежної безпеки</legend>
+                                        <div class="form-field">
+                                          <label>
+                                            <input type="radio" name="color" value="red" />
+                                            так
+                                          </label>
+                                          <label>
+                                            <input type="radio" name="color" value="white"/>
+                                            ні
+                                          </label>
+                                          <label>
+                                            <input type="radio" name="color" value="green" />
+                                            не розглядалися
+                                        </div>
+                                        <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                          4 балів)
+                                          </legend>
+                                          <div class="form-field">
+                                            <label>
+                                              <input type="radio" name="color" value="red" />
+                                              1
+                                            </label>
+                                            <label>
+                                              <input type="radio" name="color" value="white"/>
+                                              2
+                                            </label>
+                                            <label>
+                                              <input type="radio" name="color" value="green" />
+                                              3</label>
+                                              <label>
+                                                <input type="radio" name="color" value="green" />
+                                                4</label>
+                                                <label>
+                                                  Нормативне обґрунтування
+                                                  <input type="text" name="color"  />
+                                                  </label>
+                                          </div>
+                                        </fieldset>   
+                                        <fieldset class="form-group">
+                                          <legend class="group-title">Горища, технічні поверхи й приміщення (у тому числі вентиляційні камери, електрощитові) використовуються за призначенням, виробничі і складські дільниці в них не розміщуються, сторонніми предметами їх не засмічено та не захаращено</legend>
+                                          <div class="form-field">
+                                            <label>
+                                              <input type="radio" name="color" value="red" />
+                                              так
+                                            </label>
+                                            <label>
+                                              <input type="radio" name="color" value="white"/>
+                                              ні
+                                            </label>
+                                            <label>
+                                              <input type="radio" name="color" value="green" />
+                                              не розглядалися
+                                          </div>
+                                          <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                            4 балів)
+                                            </legend>
+                                            <div class="form-field">
+                                              <label>
+                                                <input type="radio" name="color" value="red" />
+                                                1
+                                              </label>
+                                              <label>
+                                                <input type="radio" name="color" value="white"/>
+                                                2
+                                              </label>
+                                              <label>
+                                                <input type="radio" name="color" value="green" />
+                                                3</label>
+                                                <label>
+                                                  <input type="radio" name="color" value="green" />
+                                                  4</label>
+                                                  <label>
+                                                    Нормативне обґрунтування
+                                                    <input type="text" name="color"  />
+                                                    </label>
+                                            </div>
+                                          </fieldset>   
+                                          <fieldset class="form-group">
+                                            <legend class="group-title">Стаціонарні зовнішні пожежні сходи, сходи на перепадах висот і огорожі на покриттях будівель та споруд утримуються справними, пофарбованими</legend>
+                                            <div class="form-field">
+                                              <label>
+                                                <input type="radio" name="color" value="red" />
+                                                так
+                                              </label>
+                                              <label>
+                                                <input type="radio" name="color" value="white"/>
+                                                ні
+                                              </label>
+                                              <label>
+                                                <input type="radio" name="color" value="green" />
+                                                не розглядалися
+                                            </div>
+                                            <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                              4 балів)
+                                              </legend>
+                                              <div class="form-field">
+                                                <label>
+                                                  <input type="radio" name="color" value="red" />
+                                                  1
+                                                </label>
+                                                <label>
+                                                  <input type="radio" name="color" value="white"/>
+                                                  2
+                                                </label>
+                                                <label>
+                                                  <input type="radio" name="color" value="green" />
+                                                  3</label>
+                                                  <label>
+                                                    <input type="radio" name="color" value="green" />
+                                                    4</label>
+                                                    <label>
+                                                      Нормативне обґрунтування
+                                                      <input type="text" name="color"  />
+                                                      </label>
+                                              </div>
+                                            </fieldset>   
+                                            <fieldset class="form-group">
+                                              <legend class="group-title">У разі необхідності встановлення на вікнах приміщень, де перебувають люди, ґрат вони розкриваються, розсуваються або знімаються. Під час перебування в цих приміщеннях людей ґрати відчинені (зняті)</legend>
+                                              <div class="form-field">
+                                                <label>
+                                                  <input type="radio" name="color" value="red" />
+                                                  так
+                                                </label>
+                                                <label>
+                                                  <input type="radio" name="color" value="white"/>
+                                                  ні
+                                                </label>
+                                                <label>
+                                                  <input type="radio" name="color" value="green" />
+                                                  не розглядалися
+                                              </div>
+                                              <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                4 балів)
+                                                </legend>
+                                                <div class="form-field">
+                                                  <label>
+                                                    <input type="radio" name="color" value="red" />
+                                                    1
+                                                  </label>
+                                                  <label>
+                                                    <input type="radio" name="color" value="white"/>
+                                                    2
+                                                  </label>
+                                                  <label>
+                                                    <input type="radio" name="color" value="green" />
+                                                    3</label>
+                                                    <label>
+                                                      <input type="radio" name="color" value="green" />
+                                                      4</label>
+                                                      <label>
+                                                        Нормативне обґрунтування
+                                                        <input type="text" name="color"  />
+                                                        </label>
+                                                </div>
+                                              </fieldset>   
+                                              <fieldset class="form-group">
+                                                <legend class="group-title">У приміщеннях громадського призначення (крім приміщень, розташованих у будинках V ступеня вогнестійкості), в яких можливе перебування 50 та більше осіб, опорядження (облицювання) стін та стель виконано з матеріалів, пожежна небезпека яких не нижча ніж: Г2, В2, Д2, Т2 - для приміщень, у яких можливе перебування до 1500 осіб;
+                                                  Г1, В1, Д1, Т2 - для приміщень, у яких можливе перебування 1500 та більше осіб
+                                                  </legend>
+                                                <div class="form-field">
+                                                  <label>
+                                                    <input type="radio" name="color" value="red" />
+                                                    так
+                                                  </label>
+                                                  <label>
+                                                    <input type="radio" name="color" value="white"/>
+                                                    ні
+                                                  </label>
+                                                  <label>
+                                                    <input type="radio" name="color" value="green" />
+                                                    не розглядалися
+                                                </div>
+                                                <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                  4 балів)
+                                                  </legend>
+                                                  <div class="form-field">
+                                                    <label>
+                                                      <input type="radio" name="color" value="red" />
+                                                      1
+                                                    </label>
+                                                    <label>
+                                                      <input type="radio" name="color" value="white"/>
+                                                      2
+                                                    </label>
+                                                    <label>
+                                                      <input type="radio" name="color" value="green" />
+                                                      3</label>
+                                                      <label>
+                                                        <input type="radio" name="color" value="green" />
+                                                        4</label>
+                                                        <label>
+                                                          Нормативне обґрунтування
+                                                          <input type="text" name="color"  />
+                                                          </label>
+                                                  </div>
+                                                </fieldset>   
+                                                <fieldset class="form-group">
+                                                  <legend class="group-title">Інші вимоги пожежної безпеки щодо утримання  будинків, приміщень та споруд виконуються</legend>
+                                                  <div class="form-field">
+                                                    <label>
+                                                      <input type="radio" name="color" value="red" />
+                                                      так
+                                                    </label>
+                                                    <label>
+                                                      <input type="radio" name="color" value="white"/>
+                                                      ні
+                                                    </label>
+                                                    <label>
+                                                      <input type="radio" name="color" value="green" />
+                                                      не розглядалися
+                                                  </div>
+                                                  <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                    4 балів)
+                                                    </legend>
+                                                    <div class="form-field">
+                                                      <label>
+                                                        <input type="radio" name="color" value="red" />
+                                                        1
+                                                      </label>
+                                                      <label>
+                                                        <input type="radio" name="color" value="white"/>
+                                                        2
+                                                      </label>
+                                                      <label>
+                                                        <input type="radio" name="color" value="green" />
+                                                        3</label>
+                                                        <label>
+                                                          <input type="radio" name="color" value="green" />
+                                                          4</label>
+                                                          <label>
+                                                            Нормативне обґрунтування
+                                                            <input type="text" name="color"  />
+                                                            </label>
+                                                    </div>
+                                                  </fieldset>   
+                                                  <!-- Утримання евакуаційних шляхів і виходів  -->
+                                                  <p>Утримання евакуаційних шляхів і виходів </p>
+                                                  <fieldset class="form-group">
+                                                    <legend class="group-title">Кількість та розміри евакуаційних виходів з будівель і приміщень, класи вогнестійкості несучих та огороджувальних конструкцій не зменшено, будівельні матеріали з вищими показниками пожежної небезпеки не застосовуються, інженерні та планувальні рішення й умови освітлення  згідно з нормованою вимогою не змінено</legend>
+                                                    <div class="form-field">
+                                                      <label>
+                                                        <input type="radio" name="color" value="red" />
+                                                        так
+                                                      </label>
+                                                      <label>
+                                                        <input type="radio" name="color" value="white"/>
+                                                        ні
+                                                      </label>
+                                                      <label>
+                                                        <input type="radio" name="color" value="green" />
+                                                        не розглядалися
+                                                    </div>
+                                                    <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                      4 балів)
+                                                      </legend>
+                                                      <div class="form-field">
+                                                        <label>
+                                                          <input type="radio" name="color" value="red" />
+                                                          1
+                                                        </label>
+                                                        <label>
+                                                          <input type="radio" name="color" value="white"/>
+                                                          2
+                                                        </label>
+                                                        <label>
+                                                          <input type="radio" name="color" value="green" />
+                                                          3</label>
+                                                          <label>
+                                                            <input type="radio" name="color" value="green" />
+                                                            4</label>
+                                                            <label>
+                                                              Нормативне обґрунтування
+                                                              <input type="text" name="color"  />
+                                                              </label>
+                                                      </div>
+                                                    </fieldset>  
+                                                    <fieldset class="form-group">
+                                                      <legend class="group-title">У приміщенні, яке має один евакуаційний вихід, одночасно розміщено (перебуває) не більше 50 осіб</legend>
+                                                      <div class="form-field">
+                                                        <label>
+                                                          <input type="radio" name="color" value="red" />
+                                                          так
+                                                        </label>
+                                                        <label>
+                                                          <input type="radio" name="color" value="white"/>
+                                                          ні
+                                                        </label>
+                                                        <label>
+                                                          <input type="radio" name="color" value="green" />
+                                                          не розглядалися
+                                                      </div>
+                                                      <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                        4 балів)
+                                                        </legend>
+                                                        <div class="form-field">
+                                                          <label>
+                                                            <input type="radio" name="color" value="red" />
+                                                            1
+                                                          </label>
+                                                          <label>
+                                                            <input type="radio" name="color" value="white"/>
+                                                            2
+                                                          </label>
+                                                          <label>
+                                                            <input type="radio" name="color" value="green" />
+                                                            3</label>
+                                                            <label>
+                                                              <input type="radio" name="color" value="green" />
+                                                              4</label>
+                                                              <label>
+                                                                Нормативне обґрунтування
+                                                                <input type="text" name="color"  />
+                                                                </label>
+                                                        </div>
+                                                      </fieldset>  
+                                                      <fieldset class="form-group">
+                                                        <legend class="group-title">Двері на шляхах евакуації відчиняються в напрямку виходу з будівель (приміщень).</legend>
+                                                        <div class="form-field">
+                                                          <label>
+                                                            <input type="radio" name="color" value="red" />
+                                                            так
+                                                          </label>
+                                                          <label>
+                                                            <input type="radio" name="color" value="white"/>
+                                                            ні
+                                                          </label>
+                                                          <label>
+                                                            <input type="radio" name="color" value="green" />
+                                                            не розглядалися
+                                                        </div>
+                                                        <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                          4 балів)
+                                                          </legend>
+                                                          <div class="form-field">
+                                                            <label>
+                                                              <input type="radio" name="color" value="red" />
+                                                              1
+                                                            </label>
+                                                            <label>
+                                                              <input type="radio" name="color" value="white"/>
+                                                              2
+                                                            </label>
+                                                            <label>
+                                                              <input type="radio" name="color" value="green" />
+                                                              3</label>
+                                                              <label>
+                                                                <input type="radio" name="color" value="green" />
+                                                                4</label>
+                                                                <label>
+                                                                  Нормативне обґрунтування
+                                                                  <input type="text" name="color"  />
+                                                                  </label>
+                                                          </div>
+                                                        </fieldset>  
+                                                        <fieldset class="form-group">
+                                                          <legend class="group-title">Килими, килимові доріжки й інше покриття підлоги у приміщеннях з одночасним перебуванням 50 та більше осіб, коридорах, на сходових клітках до підлоги  кріпляться і помірно небезпечні щодо токсичності продуктів горіння, мають помірну димоутворювальну здатність та відповідають групам поширення полум’я РП1, РП2</legend>
+                                                          <div class="form-field">
+                                                            <label>
+                                                              <input type="radio" name="color" value="red" />
+                                                              так
+                                                            </label>
+                                                            <label>
+                                                              <input type="radio" name="color" value="white"/>
+                                                              ні
+                                                            </label>
+                                                            <label>
+                                                              <input type="radio" name="color" value="green" />
+                                                              не розглядалися
+                                                          </div>
+                                                          <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                            4 балів)
+                                                            </legend>
+                                                            <div class="form-field">
+                                                              <label>
+                                                                <input type="radio" name="color" value="red" />
+                                                                1
+                                                              </label>
+                                                              <label>
+                                                                <input type="radio" name="color" value="white"/>
+                                                                2
+                                                              </label>
+                                                              <label>
+                                                                <input type="radio" name="color" value="green" />
+                                                                3</label>
+                                                                <label>
+                                                                  <input type="radio" name="color" value="green" />
+                                                                  4</label>
+                                                                  <label>
+                                                                    Нормативне обґрунтування
+                                                                    <input type="text" name="color"  />
+                                                                    </label>
+                                                            </div>
+                                                          </fieldset>  
+                                                          <fieldset class="form-group">
+                                                            <legend class="group-title">Сходові марші і площадки мають справні огорожі із поручнями, котрі не зменшують ширину сходових маршів і площадок</legend>
+                                                            <div class="form-field">
+                                                              <label>
+                                                                <input type="radio" name="color" value="red" />
+                                                                так
+                                                              </label>
+                                                              <label>
+                                                                <input type="radio" name="color" value="white"/>
+                                                                ні
+                                                              </label>
+                                                              <label>
+                                                                <input type="radio" name="color" value="green" />
+                                                                не розглядалися
+                                                            </div>
+                                                            <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                              4 балів)
+                                                              </legend>
+                                                              <div class="form-field">
+                                                                <label>
+                                                                  <input type="radio" name="color" value="red" />
+                                                                  1
+                                                                </label>
+                                                                <label>
+                                                                  <input type="radio" name="color" value="white"/>
+                                                                  2
+                                                                </label>
+                                                                <label>
+                                                                  <input type="radio" name="color" value="green" />
+                                                                  3</label>
+                                                                  <label>
+                                                                    <input type="radio" name="color" value="green" />
+                                                                    4</label>
+                                                                    <label>
+                                                                      Нормативне обґрунтування
+                                                                      <input type="text" name="color"  />
+                                                                      </label>
+                                                              </div>
+                                                            </fieldset>  
+                                                            <fieldset class="form-group">
+                                                              <legend class="group-title">Сходові клітки, внутрішні відкриті та зовнішні сходи, коридори, проходи та інші шляхи евакуації забезпечені евакуаційним освітленням. Світильники евакуаційного освітлення вмикаються з настанням сутінків у разі перебування в будинку людей</legend>
+                                                              <div class="form-field">
+                                                                <label>
+                                                                  <input type="radio" name="color" value="red" />
+                                                                  так
+                                                                </label>
+                                                                <label>
+                                                                  <input type="radio" name="color" value="white"/>
+                                                                  ні
+                                                                </label>
+                                                                <label>
+                                                                  <input type="radio" name="color" value="green" />
+                                                                  не розглядалися
+                                                              </div>
+                                                              <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                                4 балів)
+                                                                </legend>
+                                                                <div class="form-field">
+                                                                  <label>
+                                                                    <input type="radio" name="color" value="red" />
+                                                                    1
+                                                                  </label>
+                                                                  <label>
+                                                                    <input type="radio" name="color" value="white"/>
+                                                                    2
+                                                                  </label>
+                                                                  <label>
+                                                                    <input type="radio" name="color" value="green" />
+                                                                    3</label>
+                                                                    <label>
+                                                                      <input type="radio" name="color" value="green" />
+                                                                      4</label>
+                                                                      <label>
+                                                                        Нормативне обґрунтування
+                                                                        <input type="text" name="color"  />
+                                                                        </label>
+                                                                </div>
+                                                              </fieldset>  
+                                                              <fieldset class="form-group">
+                                                                <legend class="group-title">Інші вимоги пожежної безпеки щодо утримання евакуаційних шляхів і виходів дотримуються</legend>
+                                                                <div class="form-field">
+                                                                  <label>
+                                                                    <input type="radio" name="color" value="red" />
+                                                                    так
+                                                                  </label>
+                                                                  <label>
+                                                                    <input type="radio" name="color" value="white"/>
+                                                                    ні
+                                                                  </label>
+                                                                  <label>
+                                                                    <input type="radio" name="color" value="green" />
+                                                                    не розглядалися
+                                                                </div>
+                                                                <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                                  4 балів)
+                                                                  </legend>
+                                                                  <div class="form-field">
+                                                                    <label>
+                                                                      <input type="radio" name="color" value="red" />
+                                                                      1
+                                                                    </label>
+                                                                    <label>
+                                                                      <input type="radio" name="color" value="white"/>
+                                                                      2
+                                                                    </label>
+                                                                    <label>
+                                                                      <input type="radio" name="color" value="green" />
+                                                                      3</label>
+                                                                      <label>
+                                                                        <input type="radio" name="color" value="green" />
+                                                                        4</label>
+                                                                        <label>
+                                                                          Нормативне обґрунтування
+                                                                          <input type="text" name="color"  />
+                                                                          </label>
+                                                                  </div>
+                                                                </fieldset>
+                                                                <!-- Стан утримання електроустановок -->
+                                              <p>Стан утримання електроустановок</p>  
+                                              <fieldset class="form-group">
+                                                <legend class="group-title">Електричні машини, апарати, обладнання, електропроводи та кабелі за виконанням та ступенем захисту відповідають класу зони згідно з ПУЕ, мають апаратуру захисту від струмів короткого замикання та інших аварійних режимів</legend>
+                                                <div class="form-field">
+                                                  <label>
+                                                    <input type="radio" name="color" value="red" />
+                                                    так
+                                                  </label>
+                                                  <label>
+                                                    <input type="radio" name="color" value="white"/>
+                                                    ні
+                                                  </label>
+                                                  <label>
+                                                    <input type="radio" name="color" value="green" />
+                                                    не розглядалися
+                                                </div>
+                                                <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                  4 балів)
+                                                  </legend>
+                                                  <div class="form-field">
+                                                    <label>
+                                                      <input type="radio" name="color" value="red" />
+                                                      1
+                                                    </label>
+                                                    <label>
+                                                      <input type="radio" name="color" value="white"/>
+                                                      2
+                                                    </label>
+                                                    <label>
+                                                      <input type="radio" name="color" value="green" />
+                                                      3</label>
+                                                      <label>
+                                                        <input type="radio" name="color" value="green" />
+                                                        4</label>
+                                                        <label>
+                                                          Нормативне обґрунтування
+                                                          <input type="text" name="color"  />
+                                                          </label>
+                                                  </div>
+                                                </fieldset>
+                                                <fieldset class="form-group">
+                                                  <legend class="group-title">Плавкі вставки запобіжників калібровані із зазначенням на клеймі номінального струму вставки (клеймо ставиться заводом-виготовлювачем або електротехнічною лабораторією). Саморобні некалібровані плавкі вставки не застосовуються</legend>
+                                                  <div class="form-field">
+                                                    <label>
+                                                      <input type="radio" name="color" value="red" />
+                                                      так
+                                                    </label>
+                                                    <label>
+                                                      <input type="radio" name="color" value="white"/>
+                                                      ні
+                                                    </label>
+                                                    <label>
+                                                      <input type="radio" name="color" value="green" />
+                                                      не розглядалися
+                                                  </div>
+                                                  <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                    4 балів)
+                                                    </legend>
+                                                    <div class="form-field">
+                                                      <label>
+                                                        <input type="radio" name="color" value="red" />
+                                                        1
+                                                      </label>
+                                                      <label>
+                                                        <input type="radio" name="color" value="white"/>
+                                                        2
+                                                      </label>
+                                                      <label>
+                                                        <input type="radio" name="color" value="green" />
+                                                        3</label>
+                                                        <label>
+                                                          <input type="radio" name="color" value="green" />
+                                                          4</label>
+                                                          <label>
+                                                            Нормативне обґрунтування
+                                                            <input type="text" name="color"  />
+                                                            </label>
+                                                    </div>
+                                                  </fieldset>
+                                                  <fieldset class="form-group">
+                                                    <legend class="group-title">З’єднання, відгалуження та окінцювання жил проводів і кабелів здійснено за допомогою опресування, зварювання, паяння або затискачів</legend>
+                                                    <div class="form-field">
+                                                      <label>
+                                                        <input type="radio" name="color" value="red" />
+                                                        так
+                                                      </label>
+                                                      <label>
+                                                        <input type="radio" name="color" value="white"/>
+                                                        ні
+                                                      </label>
+                                                      <label>
+                                                        <input type="radio" name="color" value="green" />
+                                                        не розглядалися
+                                                    </div>
+                                                    <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                      4 балів)
+                                                      </legend>
+                                                      <div class="form-field">
+                                                        <label>
+                                                          <input type="radio" name="color" value="red" />
+                                                          1
+                                                        </label>
+                                                        <label>
+                                                          <input type="radio" name="color" value="white"/>
+                                                          2
+                                                        </label>
+                                                        <label>
+                                                          <input type="radio" name="color" value="green" />
+                                                          3</label>
+                                                          <label>
+                                                            <input type="radio" name="color" value="green" />
+                                                            4</label>
+                                                            <label>
+                                                              Нормативне обґрунтування
+                                                              <input type="text" name="color"  />
+                                                              </label>
+                                                      </div>
+                                                    </fieldset>
+                                                    <fieldset class="form-group">
+                                                      <legend class="group-title">В електропроводках вибухонебезпечних і пожежонебезпечних зон відгалужувальні та з’єднувальні коробки кришками з негорючих або важкогорючих матеріалів закриті</legend>
+                                                      <div class="form-field">
+                                                        <label>
+                                                          <input type="radio" name="color" value="red" />
+                                                          так
+                                                        </label>
+                                                        <label>
+                                                          <input type="radio" name="color" value="white"/>
+                                                          ні
+                                                        </label>
+                                                        <label>
+                                                          <input type="radio" name="color" value="green" />
+                                                          не розглядалися
+                                                      </div>
+                                                      <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                        4 балів)
+                                                        </legend>
+                                                        <div class="form-field">
+                                                          <label>
+                                                            <input type="radio" name="color" value="red" />
+                                                            1
+                                                          </label>
+                                                          <label>
+                                                            <input type="radio" name="color" value="white"/>
+                                                            2
+                                                          </label>
+                                                          <label>
+                                                            <input type="radio" name="color" value="green" />
+                                                            3</label>
+                                                            <label>
+                                                              <input type="radio" name="color" value="green" />
+                                                              4</label>
+                                                              <label>
+                                                                Нормативне обґрунтування
+                                                                <input type="text" name="color"  />
+                                                                </label>
+                                                        </div>
+                                                      </fieldset>
+                                                      <fieldset class="form-group">
+                                                        <legend class="group-title">Тимчасові електромережі не влаштовані та не експлуатуються</legend>
+                                                        <div class="form-field">
+                                                          <label>
+                                                            <input type="radio" name="color" value="red" />
+                                                            так
+                                                          </label>
+                                                          <label>
+                                                            <input type="radio" name="color" value="white"/>
+                                                            ні
+                                                          </label>
+                                                          <label>
+                                                            <input type="radio" name="color" value="green" />
+                                                            не розглядалися
+                                                        </div>
+                                                        <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                          4 балів)
+                                                          </legend>
+                                                          <div class="form-field">
+                                                            <label>
+                                                              <input type="radio" name="color" value="red" />
+                                                              1
+                                                            </label>
+                                                            <label>
+                                                              <input type="radio" name="color" value="white"/>
+                                                              2
+                                                            </label>
+                                                            <label>
+                                                              <input type="radio" name="color" value="green" />
+                                                              3</label>
+                                                              <label>
+                                                                <input type="radio" name="color" value="green" />
+                                                                4</label>
+                                                                <label>
+                                                                  Нормативне обґрунтування
+                                                                  <input type="text" name="color"  />
+                                                                  </label>
+                                                          </div>
+                                                        </fieldset>
+                                                        <fieldset class="form-group">
+                                                          <legend class="group-title">Відстань від кабелів та ізольованих проводів, прокладених відкрито, до місць відкритого зберігання (розміщення) горючих матеріалів не менше 1 метра</legend>
+                                                          <div class="form-field">
+                                                            <label>
+                                                              <input type="radio" name="color" value="red" />
+                                                              так
+                                                            </label>
+                                                            <label>
+                                                              <input type="radio" name="color" value="white"/>
+                                                              ні
+                                                            </label>
+                                                            <label>
+                                                              <input type="radio" name="color" value="green" />
+                                                              не розглядалися
+                                                          </div>
+                                                          <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                            4 балів)
+                                                            </legend>
+                                                            <div class="form-field">
+                                                              <label>
+                                                                <input type="radio" name="color" value="red" />
+                                                                1
+                                                              </label>
+                                                              <label>
+                                                                <input type="radio" name="color" value="white"/>
+                                                                2
+                                                              </label>
+                                                              <label>
+                                                                <input type="radio" name="color" value="green" />
+                                                                3</label>
+                                                                <label>
+                                                                  <input type="radio" name="color" value="green" />
+                                                                  4</label>
+                                                                  <label>
+                                                                    Нормативне обґрунтування
+                                                                    <input type="text" name="color"  />
+                                                                    </label>
+                                                            </div>
+                                                          </fieldset>
+
+                                                          <fieldset class="form-group">
+                                                            <legend class="group-title">Електророзетки, вимикачі, перемикачі та інші подібні апарати встановлені на не горючі основи (конструкції) або з підкладанням під них суцільного негорючого матеріалу, що виступає за габарити апарата не менше ніж на 0,01 метра</legend>
+                                                            <div class="form-field">
+                                                              <label>
+                                                                <input type="radio" name="color" value="red" />
+                                                                так
+                                                              </label>
+                                                              <label>
+                                                                <input type="radio" name="color" value="white"/>
+                                                                ні
+                                                              </label>
+                                                              <label>
+                                                                <input type="radio" name="color" value="green" />
+                                                                не розглядалися
+                                                            </div>
+                                                            <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                              4 балів)
+                                                              </legend>
+                                                              <div class="form-field">
+                                                                <label>
+                                                                  <input type="radio" name="color" value="red" />
+                                                                  1
+                                                                </label>
+                                                                <label>
+                                                                  <input type="radio" name="color" value="white"/>
+                                                                  2
+                                                                </label>
+                                                                <label>
+                                                                  <input type="radio" name="color" value="green" />
+                                                                  3</label>
+                                                                  <label>
+                                                                    <input type="radio" name="color" value="green" />
+                                                                    4</label>
+                                                                    <label>
+                                                                      Нормативне обґрунтування
+                                                                      <input type="text" name="color"  />
+                                                                      </label>
+                                                              </div>
+                                                            </fieldset>
+                                                            <fieldset class="form-group">
+                                                              <legend class="group-title">Замір опору ізоляції і перевірка спрацювання приладів захисту електричних мереж та електроустановок від короткого замикання проводиться 1 раз на 2 роки</legend>
+                                                              <div class="form-field">
+                                                                <label>
+                                                                  <input type="radio" name="color" value="red" />
+                                                                  так
+                                                                </label>
+                                                                <label>
+                                                                  <input type="radio" name="color" value="white"/>
+                                                                  ні
+                                                                </label>
+                                                                <label>
+                                                                  <input type="radio" name="color" value="green" />
+                                                                  не розглядалися
+                                                              </div>
+                                                              <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                                4 балів)
+                                                                </legend>
+                                                                <div class="form-field">
+                                                                  <label>
+                                                                    <input type="radio" name="color" value="red" />
+                                                                    1
+                                                                  </label>
+                                                                  <label>
+                                                                    <input type="radio" name="color" value="white"/>
+                                                                    2
+                                                                  </label>
+                                                                  <label>
+                                                                    <input type="radio" name="color" value="green" />
+                                                                    3</label>
+                                                                    <label>
+                                                                      <input type="radio" name="color" value="green" />
+                                                                      4</label>
+                                                                      <label>
+                                                                        Нормативне обґрунтування
+                                                                        <input type="text" name="color"  />
+                                                                        </label>
+                                                                </div>
+                                                              </fieldset>
+                                                              <fieldset class="form-group">
+                                                                <legend class="group-title">Захист будівель, споруд та зовнішніх установок від прямих попадань блискавки і вторинних її проявів, а також їх перевірка виконано відповідно до вимог ДСТУ Б В.2.5-38:2008 «Інженерне обладнання будинків і споруд. Улаштування блискавкозахисту будівель і споруд»</legend>
+                                                                <div class="form-field">
+                                                                  <label>
+                                                                    <input type="radio" name="color" value="red" />
+                                                                    так
+                                                                  </label>
+                                                                  <label>
+                                                                    <input type="radio" name="color" value="white"/>
+                                                                    ні
+                                                                  </label>
+                                                                  <label>
+                                                                    <input type="radio" name="color" value="green" />
+                                                                    не розглядалися
+                                                                </div>
+                                                                <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                                  4 балів)
+                                                                  </legend>
+                                                                  <div class="form-field">
+                                                                    <label>
+                                                                      <input type="radio" name="color" value="red" />
+                                                                      1
+                                                                    </label>
+                                                                    <label>
+                                                                      <input type="radio" name="color" value="white"/>
+                                                                      2
+                                                                    </label>
+                                                                    <label>
+                                                                      <input type="radio" name="color" value="green" />
+                                                                      3</label>
+                                                                      <label>
+                                                                        <input type="radio" name="color" value="green" />
+                                                                        4</label>
+                                                                        <label>
+                                                                          Нормативне обґрунтування
+                                                                          <input type="text" name="color"  />
+                                                                          </label>
+                                                                  </div>
+                                                                </fieldset>
+                                                                <fieldset class="form-group">
+                                                                  <legend class="group-title">Інші вимоги пожежної безпеки щодо утримання електроустановок дотримуються</legend>
+                                                                  <div class="form-field">
+                                                                    <label>
+                                                                      <input type="radio" name="color" value="red" />
+                                                                      так
+                                                                    </label>
+                                                                    <label>
+                                                                      <input type="radio" name="color" value="white"/>
+                                                                      ні
+                                                                    </label>
+                                                                    <label>
+                                                                      <input type="radio" name="color" value="green" />
+                                                                      не розглядалися
+                                                                  </div>
+                                                                  <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                                                                    4 балів)
+                                                                    </legend>
+                                                                    <div class="form-field">
+                                                                      <label>
+                                                                        <input type="radio" name="color" value="red" />
+                                                                        1
+                                                                      </label>
+                                                                      <label>
+                                                                        <input type="radio" name="color" value="white"/>
+                                                                        2
+                                                                      </label>
+                                                                      <label>
+                                                                        <input type="radio" name="color" value="green" />
+                                                                        3</label>
+                                                                        <label>
+                                                                          <input type="radio" name="color" value="green" />
+                                                                          4</label>
+                                                                          <label>
+                                                                            Нормативне обґрунтування
+                                                                            <input type="text" name="color"  />
+                                                                            </label>
+                                                                    </div>
+                                                                  </fieldset>
+                  <!-- <div class="form-field">
+                    <input type="checkbox" name="language" value="python" id="python">
+                    <label class="form-label" for="python">ні</label>
+                  </div>
+                  <div class="form-field">
+                    <input type="checkbox" name="language" value="python" id="python">
+                    <label class="form-label" for="python">не розглядалися</label>
+                  </div>
+                    <legend class="group-title">Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 
+                      4 балів)**
+                      </legend>
+                    <div class="form-field">
+                      <input type="checkbox" name="language" value="python" id="python">
+                      <label class="form-label" for="python">1</label>
+                    </div>
+                    <div class="form-field">
+                      <input type="checkbox" name="language" value="python" id="python">
+                      <label class="form-label" for="python">2</label>
+                    </div>
+                    <div class="form-field">
+                      <input type="checkbox" name="language" value="python" id="python">
+                      <label class="form-label" for="python">3</label>
+                    </div>
+                    <div class="form-field">
+                      <input type="checkbox" name="language" value="python" id="python">
+                      <label class="form-label" for="python">4</label>
+                    </div> -->
+               
+                  <!-- <div class="form-field">
+                    <input type="checkbox" name="language" value="js" id="js">
+                    <label class="form-label" for="js">На об’єкті на видимих місцях плани (схеми) евакуації людей на випадок пожежі вивішені</label>
+                  </div> -->
+                  <!-- <div class="form-field">
+                    <input type="checkbox" name="language" value="js" id="js">
+                    <label class="form-label" for="js">Під час експлуатації об’єктів рівень пожежної безпеки, установлений законодавством, яке було чинним на момент початку використання об’єкта, не знижений</label>
+                  </div>
+                  <div class="form-field">
+                    <input type="checkbox" name="language" value="js" id="js">
+                    <label class="form-label" for="js">У будівництві та на виробництві застосовуються матеріали та речовини з визначеними показниками щодо пожежної небезпеки</label>
+                  </div>
+                  <div class="form-field">
+                    <input type="checkbox" name="language" value="js" id="js">
+                    <label class="form-label" for="js">Дотримання працівниками об’єкта встановленого протипожежного режиму забезпечено</label>
+                  </div>
+                  <div class="form-field">
+                    <input type="checkbox" name="language" value="js" id="js">
+                    <label class="form-label" for="js">Роботу новоутвореного підприємства чи використання суб’єктом господарювання об’єктів нерухомості розпочато на підставі поданої декларації відповідності матеріально-технічної бази суб’єкта господарювання вимогам законодавства з питань пожежної безпеки</label>
+                  </div>
+                  <div class="form-field">
+                    <input type="checkbox" name="language" value="js" id="js">
+                    <label class="form-label" for="js">Посадові особи та працівники пройшли навчання, протипожежний інструктаж і перевірку знань з питань пожежної безпеки </label>
+                  </div> -->
+        
+                <button type="submit">Сформувати акт</button>
+              </form>
+            </div>
+            </section>
+        </div>
+      </div>
+
+
+    </main>
+    <footer>
+
+    </footer>
+    <script src="index.js" type="module"></script>
+</body>
+</html>
