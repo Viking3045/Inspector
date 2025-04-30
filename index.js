@@ -1,4 +1,6 @@
 import  { thresholdMasses }  from "./thresholdMasses.js";
+const riskAssessmentList = document.querySelector(".riskAssessmentList")
+import { riskAssessmentCriteria } from "./riskAssessmentCriteria.js";
 const submitFirstForm = document.querySelector(".submitFirstForm");
 const selectDangerousSubstance = document.querySelector(".selectDangerousSubstance");
 const title = document.querySelector(".title");
@@ -6,11 +8,12 @@ const calculationForm = document.querySelector(".calculationForm");
 const amountSubstance = document.querySelector(".amount");
 const main = document.querySelector(".main")
 const mainIdentification = document.querySelector(".mainIdentification")
+const mainRiskAssessment = document.querySelector(".mainRiskAssessment")
 
 selectDangerousSubstance.addEventListener("change", setOutputSubstance);
 submitFirstForm.addEventListener("click", submit);
 amountSubstance.addEventListener("change", submitAmount)
-
+// console.log("prikol", riskAssessmentCriteria)
 
 //__________________________________________________ІДЕНТИФІКАЦІЯ ОБ'ЄКТА_______________________________________
 
@@ -58,6 +61,15 @@ window.onclick = function(event) {
       if (event.target == modalNotification) {
         modalNotification.style.display = "none";
     }
+    if (event.target == modalActOfInspectionPB) {
+      modalActOfInspectionPB.style.display = "none";
+  }
+  if (event.target == modalActOfInspectionTB) {
+    modalActOfInspectionTB.style.display = "none";
+} 
+if (event.target == modalRiskAssessment) {
+  modalRiskAssessment.style.display = "none";
+}
 }
 
 
@@ -71,6 +83,7 @@ let obj = {
   substance: 0,
   counter: 0,
   classForOne: "",
+  risk: "", 
   };
   let array = [];
   function submitAmount(event){
@@ -181,7 +194,7 @@ function heightOfCollapse (){
   const first = allClassesForOne.includes("1 клас")
   if(first === true){
     cherry = "належить до 1 класу небезпечних речовин"
-    console.log("1111", first)
+    // console.log("1111", first)
   } else if(first === false){
 const second = allClassesForOne.includes("2 клас")
 if(second === true){
@@ -374,6 +387,225 @@ ${middleNameOfHeadOfStateTechnologicalAndEnvironmentalSafety}
   }
 
 
+    // ________Оцінка ступеня ризику___________________________________
+  // __МОДАЛЬНЕ ВІКНО Акту проведення перевірки
+  // Отримати модальне вікно
+  const modalRiskAssessment = document.getElementById("myModalRiskAssessment");
+  
+  // Отримати кнопку, яка відкриває модальне вікно
+  const openModalRiskAssessment = document.getElementById("openModalRiskAssessment");
+  
+  // Отримати елемент <span>, який закриває модальне вікно
+  const closeRiskAssessment = document.getElementsByClassName("closeRiskAssessment")[0];
+  
+  // Коли користувач натискає на кнопку, відкрити модальне вікно
+  openModalRiskAssessment.onclick = function() {
+      modalRiskAssessment.style.display = "block";
+
+
+  
+  }
+  
+  // Коли користувач натискає на <closeRiskAssessment> (x), закрити модальне вікно
+  closeRiskAssessment.onclick = function() {
+      modalRiskAssessment.style.display = "none";
+  }
+
+
+      // _____________________________________________________________________________________________________________________ПАРТАК___________________________
+//       const submitRisk = document.querySelector(".submitRisk")
+//       submitRisk.addEventListener("submit", riskFunction)
+//   const list = riskAssessmentCriteria.map(function(word) {
+
+//     const wrap = word.indicatorsOfCriteria
+//     const item = document.createElement("li")
+
+//     const h3 = document.createElement("h3")
+//     h3.textContent = `${word.criteriaForAssessingTheDegreeOfRisk}`
+//     h3.classList = "primaryTextColor title1"
+
+//     const customSelect = document.createElement("div")
+//     customSelect.classList = "custom-select"
+
+//     const selectSelected = document.createElement("div")
+//     selectSelected.classList = "select-selected"
+//  selectSelected.textContent = "Виберіть опцію"
+//     const selectItems = document.createElement("div")
+//     selectItems.classList = "select-items"
+
+// for(const key in wrap){
+
+//   const option = document.createElement("div")
+//   option.classList = "option"
+//   option.dataValue = `${wrap[key]}`
+//   option.textContent = `${key}`
+
+//   selectItems.append(option)
+// }
+// customSelect.append(selectSelected)
+
+// item.append(h3)
+// customSelect.append(selectItems)
+//    item.append(customSelect)
+
+//    riskAssessmentList.append(item)
+//    selectSelected.addEventListener('click', () => {
+//     selectItems.style.display = selectItems.style.display === 'block' ? 'none' : 'block';
+// });
+
+// selectItems.querySelectorAll('div').forEach(item => {
+//     item.addEventListener('click', function() {
+//         selectSelected.textContent = this.textContent;
+//         selectItems.style.display = 'none';
+//     });
+// });
+
+// // Закриття списку при кліку поза ним
+// document.addEventListener('click', function(event) {
+//     if (!event.target.closest('.custom-select')) {
+//         selectItems.style.display = 'none';
+//     }
+// });
+//   })
+
+
+
+
+
+
+
+  
+
+
+
+  const list = riskAssessmentCriteria.map(function(word) {
+
+    const wrap = word.indicatorsOfCriteria
+    const item = document.createElement("li")
+
+    const h3 = document.createElement("h3")
+    h3.textContent = `${word.criteriaForAssessingTheDegreeOfRisk}`
+    h3.classList = "primaryTextColor title1"
+    const select = document.createElement("select")
+    select.classList = "select"
+    const option2 = document.createElement("option")
+    option2.disabled
+    option2.selected
+    option2.textContent = "Оберіть опцію"
+    select.append(option2)
+for(const key in wrap){
+
+  const option = document.createElement("option")
+
+  option.classList = "option"
+  
+
+  option.value = `${wrap[key]}`
+  option.textContent = `${key}`
+  
+  select.append(option)
+
+}
+
+item.append(h3)
+   item.append(select)
+
+   riskAssessmentList.append(item)
+
+  })
+
+
+const submitRisk = document.querySelector(".submitRisk")
+
+
+  document.querySelector('.riskAssessmentForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Зупиняємо стандартну поведінку форми
+
+    // Отримуємо всі select з класом mySelect
+    var selects = document.querySelectorAll('.select');
+    var selectedValues = [];
+
+    // Проходимо по кожному select і отримуємо його значення
+    selects.forEach(function(select) {
+        selectedValues.push(select.value);
+    });
+
+    // Виводимо результати
+  console.log("asasas",selectedValues)
+
+
+
+const total = selectedValues.reduce((previosValue, number)=> {
+  return previosValue + Number(number)
+},0)
+
+if(total >0){
+
+let typeRisk = ""
+if(total>=0 && total<=20){
+  typeRisk = "незначний"
+} else if(total>=21 && total<=40){
+  typeRisk = "середній"
+}else if(total>=41 && total<=100){
+  typeRisk = "високий"
+} else{ typeRisk = "не визначено, з-за відсутності данних"}
+obj.risk = typeRisk
+console.log("obj", obj)
+  const finalFirstContainer = document.createElement("div")
+  finalFirstContainer.classList = "container"
+  const firstTitle = document.createElement("p")
+  firstTitle.textContent = `Ступінь ризику  ${typeRisk}`
+  firstTitle.classList = "substanceWhoAdd"
+
+
+
+
+
+
+  // кнопка переходу від першого кроку до наступного
+const firstStepEnd = document.createElement("button")
+firstStepEnd.textContent = "Перейти до наступних кроків";
+firstStepEnd.type = "button";
+firstStepEnd.style = "padding: 20px"; 
+firstStepEnd.classList = "btn";
+firstStepEnd.addEventListener("click", firstStepEndButton);
+function firstStepEndButton() {
+  firstStepEnd.onclick = function() {
+    modalRiskAssessment.style.display = "none"
+}
+}
+
+submitRisk.disabled = true
+finalFirstContainer.append(firstTitle)
+
+finalFirstContainer.append(firstStepEnd)
+
+mainRiskAssessment.append(finalFirstContainer)
+
+}else{
+  alert("Будь ласка заповніть всі поля");
+}
+});
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -401,6 +633,356 @@ closeActOfInspection.onclick = function() {
     modalActOfInspection.style.display = "none";
 }
 
-// Коли користувач натискає будь-де поза модальним вікном, закрити його
+
+  // ______________________________________________________________АКТПБ___________________________________
+  // __МОДАЛЬНЕ ВІКНО Акту проведення перевірки
+  // Отримати модальне вікно
+  const modalActOfInspectionPB = document.getElementById("myModalActOfInspectionPB");
+  
+  // Отримати кнопку, яка відкриває модальне вікно
+  const openModalActOfInspectionPB = document.getElementById("openModalActOfInspectionPB");
+  
+  // Отримати елемент <span>, який закриває модальне вікно
+  const closeActOfInspectionPB = document.getElementsByClassName("closeActOfInspectionPB")[0];
+  
+  // Коли користувач натискає на кнопку, відкрити модальне вікно
+  openModalActOfInspectionPB.onclick = function() {
+      modalActOfInspectionPB.style.display = "block";
+  }
+  
+  // Коли користувач натискає на <closeActOfInspectionPB> (x), закрити модальне вікно
+  closeActOfInspectionPB.onclick = function() {
+      modalActOfInspectionPB.style.display = "none";
+  }
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // ________________________________________________________________________________________АКТТБ___________________________________
+  // __МОДАЛЬНЕ ВІКНО Акту проведення перевірки
+  // Отримати модальне вікно
+  const modalActOfInspectionTB = document.getElementById("myModalActOfInspectionTB");
+  
+  // Отримати кнопку, яка відкриває модальне вікно
+  const openModalActOfInspectionTB = document.getElementById("openModalActOfInspectionTB");
+  
+  // Отримати елемент <span>, який закриває модальне вікно
+  const closeActOfInspectionTB = document.getElementsByClassName("closeActOfInspectionTB")[0];
+  
+  // Коли користувач натискає на кнопку, відкрити модальне вікно
+  openModalActOfInspectionTB.onclick = function() {
+      modalActOfInspectionTB.style.display = "block";
+  }
+  
+  // Коли користувач натискає на <closeActOfInspectionTB> (x), закрити модальне вікно
+  closeActOfInspectionTB.onclick = function() {
+      modalActOfInspectionTB.style.display = "none";
+  }
+
+
+
+
+import {listOfQuestions} from "./listOfData/forAct.js"
+const actOfInspectionButtonTB = document.querySelector(".actOfInspectionButtonTB")
+actOfInspectionButtonTB.addEventListener("click", startTB)
+function startTB(event){
+  event.preventDefault();
+// console.log("list", listOfQuestions)
+  // const containerTB = document.querySelector(".containerTB")
+  let number1 = 0
+const formTB = document.querySelector(".formTB")
+
+
+  const mapTB = listOfQuestions.map(function(word) {
+// const parta = "середній"
+    // console.log("word", word.indicator)
+  
+  //  console.log("number", number1)
+   
+    if(word.indicator.includes(obj.risk) === true){
+      const dataOfListQuestions = word
+     number1 +=1
+      const fieldset = document.createElement("fieldset")
+      fieldset.classList = "form-group"
+  
+      const legend = document.createElement("legend")
+      legend.classList = "group-title question1"
+      legend.textContent = `${dataOfListQuestions.question}`
+  
+      const formField1 = document.createElement("div")
+      formField1.classList = "form-field"
+  
+      const labelForQuestion1 = document.createElement("label")
+        
+      const inputForQuestion1 = document.createElement("input")
+       labelForQuestion1.textContent = "так"
+      inputForQuestion1.type = "radio";
+      inputForQuestion1.name = `answer${number1}`;
+      inputForQuestion1.value = "так"
+      labelForQuestion1.prepend(inputForQuestion1)
+
+  
+      const labelForQuestion2 = document.createElement("label")
+      labelForQuestion2.textContent = "ні"
+      const inputForQuestion2 = document.createElement("input")
+      inputForQuestion2.type = "radio";
+      inputForQuestion2.name = `answer${number1}`;
+      inputForQuestion2.value = "ні"
+     labelForQuestion2.prepend(inputForQuestion2)
+  
+  
+      const labelForQuestion3 = document.createElement("label")
+         labelForQuestion3.textContent = "не розглядалися"
+      const inputForQuestion3 = document.createElement("input")
+      inputForQuestion3.type = "radio";
+      inputForQuestion3.name = `answer${number1}`;
+      inputForQuestion3.value = "не розглядалися"
+      labelForQuestion3.prepend(inputForQuestion3)
+   
+  
+      formField1.append(labelForQuestion1)
+      formField1.append(labelForQuestion2)
+      formField1.append(labelForQuestion3)
+      fieldset.append(legend)
+      fieldset.append(formField1)
+  
+      
+    const legend2 = document.createElement("legend")
+      legend2.classList = "group-title "
+      legend2.textContent = "Позиція суб’єкта господарювання щодо негативного впливу вимоги законодавства (від 1 до 4 балів)**"
+  
+      const formField2 = document.createElement("div")
+      formField2.classList = "form-field"
+  
+      const labelForPoint1 = document.createElement("label")
+      labelForPoint1.textContent = "1"
+      const inputForPoint1 = document.createElement("input")
+      inputForPoint1.type = "radio";
+      inputForPoint1.name = `rating${number1}`;
+      inputForPoint1.value = "1"
+      labelForPoint1.prepend(inputForPoint1)
+  
+      const labelForPoint2 = document.createElement("label")
+      labelForPoint2.textContent = "2";
+      const inputForPoint2 = document.createElement("input")
+      inputForPoint2.type = "radio";
+      inputForPoint2.name = `rating${number1}`;
+      inputForPoint2.value = "2";
+      labelForPoint2.prepend(inputForPoint2);
+  
+      const labelForPoint3 = document.createElement("label")
+      labelForPoint3.textContent = "3"
+      const inputForPoint3 = document.createElement("input")
+      inputForPoint3.type = "radio";
+      inputForPoint3.name = `rating${number1}`;
+      inputForPoint3.value = "3"
+      labelForPoint3.prepend(inputForPoint3)
+  
+      const labelForPoint4 = document.createElement("label")
+      labelForPoint4.textContent = "4"
+      const inputForPoint4 = document.createElement("input")
+      inputForPoint4.type = "radio";
+      inputForPoint4.name = `rating${number1}`;
+      inputForPoint4.value = "4"
+      labelForPoint4.prepend(inputForPoint4)
+  
+      const titelNorm = document.createElement("h3")
+      titelNorm.textContent = "Нормативне обгрунтування"
+  
+      const norm = document.createElement("p")
+      norm.classList = `regulatoryJustification`
+      norm.textContent = `${dataOfListQuestions.normative}`
+  
+  
+      formField2.append(labelForPoint1)
+      formField2.append(labelForPoint2)
+      formField2.append(labelForPoint3)
+      formField2.append(labelForPoint4)
+      formField2.append(titelNorm)
+      formField2.append(norm)
+      fieldset.append(legend2)
+      fieldset.append(formField2)
+      formTB.prepend(fieldset)
+
+
+
+   
+    }  else {
+      // alert("Будь ласка проведіть оцінку ступеня ризику об'єкта");
+    }
+
+
+   
+
+
+    // const option = document.createElement("option")
+    // option.value = `${word.individualNamesOfDangerousSubstances}`
+    // option.textContent = `${word.individualNamesOfDangerousSubstances}`
+    // // option.classList = 
+    // selectDangerousSubstance.append(option)
+    // console.log('word',word.individualNamesOfDangerousSubstances );
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      const submitTB = document.querySelector(".submitTB")
+
+      submitTB.addEventListener("click", handleSubmitTB)
+function handleSubmitTB(event){
+  event.preventDefault();
+  const results = {};
+    
+  // Отримуємо всі fieldset елементи
+  const fieldsets = document.querySelectorAll('.form-group');
+
+  fieldsets.forEach((fieldset, index) => {
+      // Знаходимо радіокнопки в поточному fieldset
+      const radios = fieldset.querySelectorAll('input[type="radio"]');
+      const pText = fieldset.querySelectorAll(".regulatoryJustification")
+      const question = fieldset.querySelectorAll(".question1")
+      for(const q of question){
+        results[`number${index+1}`] = `${index+1}`
+        results[`questions${index+1}`] = q.textContent
+        results[`id${index+1}`] = `${obj.risk}`
+      }
+      for (const radio of radios) {
+        if (radio.checked) {
+            results[`rating ${index + 1}`] = radio.value;
+            // break; // Виходимо з циклу, якщо знайдено вибране значення
+        }
+    }
+      for (const radio of radios) {
+          if (radio.checked) {
+              results[`answer${index + 1}`] = radio.value;
+              break; // Виходимо з циклу, якщо знайдено вибране значення
+          }
+      }
+    for (const p of pText){
+      results[`text${index+1}`] = p.textContent
+    }  
+  });
+
+function objectToArray(obj) {
+  const keys = Object.keys(obj);
+  const result = [];
+
+  for (let i = 0; i < keys.length; i += 6) {
+      const chunk = {};
+      for (let j = 0; j < 6; j++) {
+          if (keys[i + j]) {
+              chunk[keys[i + j]] = obj[keys[i + j]];
+          }
+      }
+      result.push(chunk);
+  }
+
+  return result;
+}
+
+const transformedArray = objectToArray(results);
+console.log(transformedArray);
+
+
+
+// // Функція для створення таблиці
+function createTable(data) {
+    // Створюємо елемент таблиці
+    const table = document.createElement('table');
+  table.style.borderCollapse = "collapse"
+    // Створюємо заголовок таблиці
+    const thead = document.createElement('thead');
+    const headerRow = document.createElement('tr');
+    
+    // Заголовки колонок
+    const headers = [ "Порядковий номер","Питання щодо дотримання суб’єктом господарювання вимог законодавства", "Ступінь ризику суб’єкта господарювання", "Позиція суб’єкта господарю- вання щодо негативного впливу вимоги законодавства (від 1 до 4 балів)**","Відповіді на питання (так, ні, не розглядалося)",  "Нормативне обґрунтування"];
+    headers.forEach(headerText => {
+        const header = document.createElement('th');
+        header.textContent = headerText;
+        header.style.border = "1px solid black"
+        header.style.padding = "10px"
+        header.style.textAlign = "left"
+        headerRow.appendChild(header);
+    });
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    // Створюємо тіло таблиці
+    const tbody = document.createElement('tbody');
+    // tbody.style.border = "1px solid black"
+    // tbody.style.padding = "8px"
+    // tbody.style.textAlign = "left"
+    data.forEach(item => {
+        const row = document.createElement('tr');
+        Object.values(item).forEach(text => {
+            const cell = document.createElement('td');
+            cell.style.border = "1px solid black"
+            cell.style.padding = "10px"
+            cell.textContent = text;
+            row.appendChild(cell);
+        });
+        tbody.appendChild(row);
+    });
+    table.appendChild(tbody);
+
+    return table;
+}
+  const div = document.createElement("div")
+  div.appendChild(createTable(transformedArray));
+  // console.log("div", div.outerHTML)
+  const pro = `${div.outerHTML}`
+
+    // Форматуємо дані у форматі HTML для Word
+    const blob = new Blob([pro], { type: "application/msword;charset=utf-8;fonts=timesNewRoman" });
+
+    // Зберігаємо файл з ім'ям "document.doc"
+    saveAs(blob, "document.doc");
+
+  
+}
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
